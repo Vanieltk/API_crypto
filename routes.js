@@ -19,7 +19,7 @@ routes.get("/usuarios", UsuarioController.index)
 routes.get("/compras", CompraController.compra)
       .delete("/compras/:id", CompraController.delete)
       .put("/compras/:id", CompraController.update)
-      .post("/compras", CompraController.post)
+      .post("/compras", CompraController.store)
 
 routes.get("/tipos",TipoController.tipo)
 module.exports = routes
