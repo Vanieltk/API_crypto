@@ -1,4 +1,4 @@
-const knex = require("../database/dbconfig")
+"use strict";const knex = require("../database/dbconfig")
 
 module.exports = {
 

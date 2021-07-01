@@ -4,17 +4,42 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest",
+    "build": "sucrase ./controllers -d ./dist --transforms imports",
+    "dev": "nodemon app.js",
+    "start": "node dist/app.js",
+    "test:cov": "jest --coverage"
+  },
+  "nodemonConfig": {
+    "execMap": {
+      "js": "node -r sucrase/register"
+    }
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "jest": {
+    "transform": {
+      ".(js|jsx|ts|tsx)": "@sucrase/jest-plugin"
+    }
+  },
   "dependencies": {
+    "@sucrase/jest-plugin": "^2.1.0",
+    "@types/jest": "^25.2.1",
     "bcrypt": "^5.0.1",
     "dotenv": "^10.0.0",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.1.0",
+    "eslint-plugin-import": "^2.20.2",
     "express": "^4.17.1",
     "jsonwebtoken": "^8.5.1",
     "knex": "^0.95.6",
-    "mysql2": "^2.2.5"
+    "mysql2": "^2.2.5",
+    "nodemon": "^2.0.2",
+    "sucrase": "^3.13.0",
+    "supertest": "^4.0.2"
+  },
+  "devDependencies": {
+    "jest": "^25.5.4"
   }
 }

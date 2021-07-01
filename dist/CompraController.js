@@ -1,4 +1,4 @@
-const { response } = require("express");
+"use strict";const { response } = require("express");
 const knex = require("../database/dbconfig");
 const { post } = require("../routes");
 
@@ -24,9 +24,8 @@ module.exports = {
         const id = req.params.id;
         const{moeda , preco_compra} = req.body
         try {
-        const novacompra = req.body
-        await knex('compras').update({ moeda, preco_compra}).where({id})
-        res.status(200).json(novacompra)
+        novacompra = await knex('compras').update({ moeda, preco_compra}).where({id})
+        res.status(200).json("Incluido com Sucesso")
         }catch(error){
             res.status(400).json({msg: error.message})
         }
