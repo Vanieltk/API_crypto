@@ -1,7 +1,8 @@
 const express = require("express");
 const routes = express.Router()
+const cors = require("cors");
 
-
+routes.use(cors());
 
 const MoedaController = require("./controllers/MoedaController")
 const UsuarioController = require("./controllers/UsuarioController")
@@ -10,7 +11,7 @@ const CompraController = require("./controllers/CompraController")
 const TipoController =require("./controllers/TipoController")
 
 routes.get("/moedas", MoedaController.index)
-      .post("/moedas",login, MoedaController.store)
+      .post("/moedas", MoedaController.store)
 
 routes.get("/usuarios", UsuarioController.index)
       .post("/usuarios", UsuarioController.store)

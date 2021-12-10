@@ -62,7 +62,8 @@ module.exports = {
             expiresIn: "1h"
           }
         )
-        res.status(200).json({ msg: "Ok! Acesso Liberado", token })
+        res.status(200).json({id: dados[0].id, nome: dados[0].nome,token})
+
 
       } else {
         res.status(400).json({ erro: "Login ou Senha Incorretos" })
